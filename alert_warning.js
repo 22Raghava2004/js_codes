@@ -1,0 +1,5 @@
+alert('gayatyr')
+let a =confirm('are yu sure')
+let propmt=prompt('what is ur namr')
+console.log(a)
+console.log(propmt)
