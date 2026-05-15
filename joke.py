@@ -7,3 +7,6 @@ if name =="":
    
 print(name,type(name))
 
+
+name=input('enter your good name')
+print(name.upper())
