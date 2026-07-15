@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Dynamic Background Text</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
+}
+
+body{
+    background:#050505;
+    color:white;
+    overflow:hidden;
+}
+
+/* Huge Background Word */
+
+#bgText{
+    font-size:320px;
+    color:rgba(255,255,255,.03);
+    font-weight:900;
+    letter-spacing:20px;
+    filter:blur(1px);
+
+    position:fixed;
+
+    top:50%;
+    left:50%;
+
+    transform:translate(-50%,-50%);
+
+    
+  
+
+    
+
+   
+
+    white-space:nowrap;
+
+    pointer-events:none;
+    user-select:none;
+
+    z-index:0;
+
+    transition:
+    opacity .5s ease,
+    transform .5s ease;
+
+}
+
+/* Cards */
+
+.container{
+
+    position:relative;
+
+    z-index:10;
+
+    height:100vh;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:30px;
+
+}
+
+.card{
+
+    width:220px;
+
+    padding:30px;
+
+    border-radius:18px;
+
+    background:rgba(255,255,255,.05);
+
+    backdrop-filter:blur(12px);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    transition:.4s;
+
+    cursor:pointer;
+
+}
+
+.card:hover{
+
+    transform:translateY(-10px);
+
+    border-color:#00e5ff;
+
+    box-shadow:0 0 30px rgba(0,229,255,.4);
+
+}
+
+.card h2{
+
+    color:#00e5ff;
+    margin-bottom:10px;
+
+}
+
+.card p{
+
+    color:#bbb;
+
+}
+
+</style>
+</head>
+<body>
+
+<div id="bgText">
+WELCOME
+</div>
+
+<div class="container">
+
+<div class="card" data-text="PYTHON">
+<h2>Python</h2>
+<p>Backend Development</p>
+</div>
+
+<div class="card" data-text="DJANGO">
+<h2>Django</h2>
+<p>Web Framework</p>
+</div>
+
+<div class="card" data-text="JAVASCRIPT">
+<h2>JavaScript</h2>
+<p>Frontend</p>
+</div>
+
+<div class="card" data-text="REACT">
+<h2>React</h2>
+<p>UI Library</p>
+</div>
+
+</div>
+
+<script>
+
+const bg=document.getElementById("bgText");
+
+document.querySelectorAll(".card").forEach(card=>{
+
+    card.addEventListener("mouseenter",()=>{
+
+        bg.style.opacity="0";
+        bg.style.transform="translate(-50%,-50%) scale(.8)";
+
+        setTimeout(()=>{
+
+            bg.textContent=card.dataset.text;
+
+            bg.style.opacity="1";
+            bg.style.transform="translate(-50%,-50%) scale(1)";
+
+        },250);
+
+    });
+
+});
+
+document.querySelector(".container").addEventListener("mouseleave",()=>{
+
+    bg.style.opacity="0";
+
+    setTimeout(()=>{
+
+        bg.textContent="WELCOME";
+
+        bg.style.opacity="1";
+
+    },250);
+
+});
+
+</script>
+
+</body>
+</html>

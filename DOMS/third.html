@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Animated Hover Website</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+height:100vh;
+overflow:hidden;
+display:flex;
+justify-content:center;
+align-items:center;
+background:linear-gradient(-45deg,#0f0c29,#302b63,#24243e,#000);
+background-size:400% 400%;
+animation:bg 12s ease infinite;
+cursor:none;
+}
+
+@keyframes bg{
+0%{background-position:0 50%;}
+50%{background-position:100% 50%;}
+100%{background-position:0 50%;}
+}
+
+.cursor{
+position:fixed;
+width:18px;
+height:18px;
+background:cyan;
+border-radius:50%;
+pointer-events:none;
+transform:translate(-50%,-50%);
+transition:.08s;
+z-index:1000;
+box-shadow:0 0 20px cyan;
+}
+
+.spotlight{
+position:fixed;
+width:250px;
+height:250px;
+background:radial-gradient(circle,rgba(0,255,255,.3),transparent 70%);
+pointer-events:none;
+transform:translate(-50%,-50%);
+}
+
+#bgText{
+position:absolute;
+font-size:180px;
+font-weight:bold;
+color:rgba(255,255,255,.05);
+transition:.4s;
+user-select:none;
+}
+
+.container{
+display:flex;
+gap:35px;
+z-index:2;
+}
+
+.card{
+width:260px;
+padding:30px;
+text-align:center;
+background:rgba(255,255,255,.08);
+border:1px solid rgba(255,255,255,.2);
+backdrop-filter:blur(12px);
+border-radius:20px;
+transition:.5s;
+opacity:0;
+transform:translateY(80px);
+animation:show .8s forwards;
+}
+
+.card:nth-child(2){
+animation-delay:.2s;
+}
+
+.card:nth-child(3){
+animation-delay:.4s;
+}
+
+@keyframes show{
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+.card:hover{
+transform:translateY(-20px) scale(1.05) rotate(-2deg);
+box-shadow:0 0 35px cyan;
+}
+
+.card h2{
+color:white;
+margin-bottom:15px;
+}
+
+.card p{
+color:#ddd;
+margin-bottom:25px;
+line-height:1.5;
+}
+
+button{
+padding:12px 28px;
+border:none;
+border-radius:40px;
+background:cyan;
+font-size:15px;
+font-weight:bold;
+cursor:pointer;
+overflow:hidden;
+position:relative;
+}
+
+button span{
+position:absolute;
+width:20px;
+height:20px;
+background:white;
+border-radius:50%;
+transform:translate(-50%,-50%) scale(0);
+animation:ripple .6s linear;
+opacity:.7;
+}
+
+@keyframes ripple{
+to{
+transform:translate(-50%,-50%) scale(10);
+opacity:0;
+}
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="cursor"></div>
+
+<div class="spotlight"></div>
+
+<h1 id="bgText">HOVER</h1>
+
+<div class="container">
+
+<div class="card" data-text="HTML">
+<h2>HTML</h2>
+<p>Create the structure of modern responsive websites.</p>
+<button>Explore</button>
+</div>
+
+<div class="card" data-text="CSS">
+<h2>CSS</h2>
+<p>Beautiful animations, gradients and glassmorphism.</p>
+<button>Explore</button>
+</div>
+
+<div class="card" data-text="JAVASCRIPT">
+<h2>JavaScript</h2>
+<p>Interactive effects using DOM and Event Listeners.</p>
+<button>Explore</button>
+</div>
+
+</div>
+
+<script>
+
+const bg=document.getElementById("bgText");
+const cursor=document.querySelector(".cursor");
+const spotlight=document.querySelector(".spotlight");
+
+document.addEventListener("mousemove",(e)=>{
+
+cursor.style.left=e.clientX+"px";
+cursor.style.top=e.clientY+"px";
+
+spotlight.style.left=e.clientX+"px";
+spotlight.style.top=e.clientY+"px";
+
+});
+
+document.querySelectorAll(".card").forEach(card=>{
+
+card.addEventListener("mouseenter",()=>{
+
+bg.textContent=card.dataset.text;
+
+cursor.style.transform="translate(-50%,-50%) scale(2)";
+
+});
+
+card.addEventListener("mouseleave",()=>{
+
+bg.textContent="HOVER";
+
+cursor.style.transform="translate(-50%,-50%) scale(1)";
+
+});
+
+});
+
+document.querySelectorAll("button").forEach(btn=>{
+
+btn.addEventListener("click",(e)=>{
+
+const circle=document.createElement("span");
+
+circle.style.left=e.offsetX+"px";
+circle.style.top=e.offsetY+"px";
+
+btn.appendChild(circle);
+
+setTimeout(()=>{
+circle.remove();
+},600);
+
+});
+
+});
+
+</script>
+
+</body>
+</html>
