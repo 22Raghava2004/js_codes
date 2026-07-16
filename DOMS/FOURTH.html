@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RAGHAV_FOURTHSTD</title>
+</head>
+<body style="background-color: black;color: aqua;">
+    <ul class="language" style="font-size: xx-large;">
+        <li >javascript</li>
+    </ul>
+    
+</body>
+<script>
+    //this is one type
+   
+
+    // this is one of more of type of assigning 
+
+    function addlanguage2(language){
+        
+        const li=document.createElement('li')
+        li.innerHTML=`${language}`
+        document.querySelector('.language').appendChild(li)
+        
+
+    }
+    addlanguage2('java')
+    addlanguage2('python')
+
+    function optilang(lang){
+        li=document.createElement('li')
+        li.appendChild(document.createTextNode(`${lang}`))
+        document.querySelector('.language').appendChild(li)
+
+
+    }
+    optilang('C++')
+
+    // Edit
+
+    const second=document.querySelector("li:nth-child(2)")
+    //second.innerHTML='pokemon'
+    const listt=document.createElement('li')
+    listt.appendChild(document.createTextNode('pokemon'))
+    second.replaceWith(listt)
+ 
+//edit 2
+
+const test2=document.querySelector('li:nth-child(3)')//.firstChild
+
+
+console.log(test2)
+     //test2.nodeValue='hello world'
+     test2.outerHTML='<li>hello gay</li>'
+     
+const test3=document.querySelector('li:nth-child(3)')//.firstChild
+
+test3.remove()
+
+</script>
+</html>

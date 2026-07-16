@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Raghava portfolio</title>
+</head>
+<body style="background-color: black; color:white;">
+    
+</body>
+<script>
+    const head1= document.createElement('h1')
+    head1.innerHTML='hello macha<span style="color:pink"> wardima chamak challlo</span>'
+    
+    head1.addEventListener('mouseenter',()=>{
+        head1.style.backgroundColor='blue'
+        head1.style.transition='0.5s'
+    })
+    head1.addEventListener('mouseleave',()=>{
+        head1.style.backgroundColor='transparent'
+        head1.style.transition='0.5s'
+    })
+    
+        
+    head1.addEventListener('dblclick',()=>{
+        head1.style.color='red'
+    })
+    head1.addEventListener('click',()=>{
+        if(head1.style.color=='white'){
+            head1.style.color='orange'
+        }
+        else{
+            head1.style.color='white'
+        }})
+    const div=document.createElement('div')
+    div.id='madar'
+    div.className='gandu'
+    div.title=Math.round(Math.random()*10+1)
+    div.style.width='250px'
+    div.style.backgroundColor='pink'
+    div.style.fontSize='30px'
+    div.addEventListener('click',()=>{
+        div.style.backgroundColor="red"
+        div.style.borderRadius='200px'
+
+        setTimeout(()=>{
+            div.style.backgroundColor='pink'
+                    div.style.borderRadius='0px'
+
+        },100)
+    
+
+    })
+    div.innerHTML='hellow world gay'
+    const boj=document.createElement('h1')
+    boj.innerHTML='hello gaygu'
+    boj.addEventListener('click',()=>{
+        boj.style.backgroundColor='blue'
+                boj.style.borderRadius='200px'
+
+
+        setTimeout(()=>{
+            boj.style.backgroundColor='pink'
+            boj.style.borderRadius='0px'
+        },100)
+    
+    
+    })
+
+    console.log()
+    document.body.appendChild(boj)
+    document.body.appendChild(div)
+    document.body.appendChild(head1)
+
+</script>
+</html>
