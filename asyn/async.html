@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1> hi i am raghavva</h1>
+    <button id="stop">start</button>
+    
+</body>
+
+<script>
+
+    setTimeout(()=>{console.log('his pussy')},2000)//this sis settimeout it will return the outpput after the time ends
+    let setter
+    let num=0
+    const settime=function(){
+        
+        const h2=document.createElement('h2')
+        h2.appendChild(document.createTextNode(`hi this is ragsi${num}`))
+        document.body.appendChild(h2)
+        console.log('hi this is me')
+        
+        button.textContent='start'
+    }
+
+    const button=document.querySelector('button')
+    button.addEventListener('click',function(){
+        if (button.textContent==='start'){
+            num++
+            setter=setTimeout(settime,500)
+            button.textContent='stop'
+            
+        }else{
+            clearTimeout(setter)
+            button.textContent='start'
+            console.log('stopped')
+
+        }
+        
+    })
+   
+   
+</script>
+</html>

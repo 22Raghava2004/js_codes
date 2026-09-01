@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1> javascript is a headace subject dont do it without the interst </h1>
+    
+    <button id="start">start</buttob>
+</body>
+
+<script>
+    let pushpu
+    let num =0
+const gajma=function (gaju){
+    console.log('hi gajma lowde ke bal',`${gaju}`)
+    let juliet=document.createElement('h2')
+            juliet.appendChild(document.createTextNode(`hi bitch its me raghav bitch ${num++}`))
+            document.body.appendChild(juliet)
+}   
+const button=document.querySelector('button')
+    button.addEventListener('click',function(){
+        if (button.textContent==='start'){
+            
+            pushpu=setInterval(gajma,500,'lee madarchof')
+            button.textContent='stop'
+        }else{
+            clearInterval(pushpu)
+            button.textContent='start'
+            num=0
+            document.querySelectorAll('h2').forEach((h1)=>h1.remove())
+
+        }
+    })
+
+
+   
+   
+</script>
+</html>
